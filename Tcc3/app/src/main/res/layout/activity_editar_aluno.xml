@@ -2,37 +2,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center">
+    android:padding="16dp">
 
-    <ImageView
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/etNome"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/aluno" />
+        android:hint="Nome"/>
 
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email" />
-
+        android:hint="Email"
+        android:inputType="textEmailAddress"/>
     <EditText
         android:id="@+id/etSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Senha"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"/>
 
     <Button
-        android:id="@+id/btnLoginProfessor"
+        android:id="@+id/btnSalvar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login Professor" />
-
-    <Button
-        android:id="@+id/btnLoginAluno"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login Aluno" />
-
+        android:text="Salvar Alterações"
+        android:layout_marginTop="16dp"/>
 </LinearLayout>

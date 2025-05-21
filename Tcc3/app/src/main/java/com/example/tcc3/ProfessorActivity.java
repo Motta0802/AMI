@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.tcc3.editar.EditarAlunoActivity;
+import com.example.tcc3.editar.EditarProfessorActivity;
+
 public class ProfessorActivity extends AppCompatActivity {
 
     @Override
@@ -21,7 +24,16 @@ public class ProfessorActivity extends AppCompatActivity {
                 Intent intent;
                 intent = new Intent(ProfessorActivity.this, LoginActivity.class);
                 startActivity(intent);
-                finish(); // Finaliza a atividade atual
+                finish(); // Finaliza a atividade recente
+            }
+        });
+        Button btnEditar = findViewById(R.id.btnEditarProfessor);
+        btnEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                intent = new Intent(ProfessorActivity.this, EditarProfessorActivity.class);
+                startActivity(intent);
             }
         });
     }
