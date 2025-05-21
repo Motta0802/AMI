@@ -2,6 +2,12 @@
 
 Bem-vindo ao **Aluno Monitor ISERJ (AMI)**, um projeto desenvolvido como Trabalho de Conclusão de Curso (TCC) para oferecer uma plataforma onde professores disponibilizam conteúdos pedagógicos e vídeo-aulas para os alunos do ISERJ - Instituto Superior de Educação do Rio de Janeiro.    
 
+### 👥 Grupo do **Trabalho de Conclusão de Curso (TCC)**
+- Thiago Pereira Motta
+- Esther Melissa de Oliveira Emídio
+- Luiz Rogerio dos Santos Anjos
+- Carlos Eduardo de Souza Fernandes
+
 ## 📜 Sobre o Projeto
 
 Uma plataforma de reforço escolar que se compreende na área de Educação e ensino. Os alunos e professores são clientes desta plataforma. O objetivo do projeto é simplificar e facilitar o acesso aos conteúdos didáticos dos alunos, criando uma aprendizagem dinâmica e interativa. 
