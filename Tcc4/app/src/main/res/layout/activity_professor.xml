@@ -27,5 +27,11 @@
         android:text="Editar"
         android:layout_marginTop="16dp" />
 
+    <Button
+        android:id="@+id/btnVisualizarAlunos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Visualizar Alunos" />
+
 
 </LinearLayout>

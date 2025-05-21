@@ -1,9 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:padding="32dp">
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bem-vindo!"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#333" />
+    <TextView
+    android:id="@+id/tvSubtitulo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Escolha uma opção para continuar"
+    android:textSize="16sp"
+    android:textColor="#777"
+    android:layout_marginTop="8dp" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="32dp">
 
+    <Button
+        android:id="@+id/btnIrParaLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnIrParaCadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cadastro" />
+    </LinearLayout>
 </LinearLayout>

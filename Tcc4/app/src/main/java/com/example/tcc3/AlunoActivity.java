@@ -2,40 +2,33 @@ package com.example.tcc3;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.tcc3.databinding.ActivityAlunoBinding;
 import com.example.tcc3.editar.EditarAlunoActivity;
-import com.example.tcc3.LoginActivity;
 
 public class AlunoActivity extends AppCompatActivity {
+
+    private ActivityAlunoBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_aluno);
+        binding = ActivityAlunoBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        Button btnLogout = findViewById(R.id.btnLogoutAluno);
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Voltar para a tela de login
-                Intent intent;
-                intent = new Intent(AlunoActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish(); // Finaliza a atividade recente
-            }
+        // Botão de logout
+        binding.btnLogoutAluno.setOnClickListener(v -> {
+            Intent intent = new Intent(AlunoActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         });
 
-        Button btnEditar = findViewById(R.id.btnEditarAluno);
-        btnEditar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent;
-                intent = new Intent(AlunoActivity.this, EditarAlunoActivity.class);
-                startActivity(intent);
-            }
+        // Botão de editar
+        binding.btnEditarAluno.setOnClickListener(v -> {
+            Intent intent = new Intent(AlunoActivity.this, EditarAlunoActivity.class);
+            startActivity(intent);
         });
     }
 }

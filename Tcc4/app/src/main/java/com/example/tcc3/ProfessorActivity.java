@@ -2,39 +2,40 @@ package com.example.tcc3;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.tcc3.editar.EditarAlunoActivity;
+import com.example.tcc3.databinding.ActivityProfessorBinding;
 import com.example.tcc3.editar.EditarProfessorActivity;
+import com.example.tcc3.lista.ListaAlunosActivity;
 
 public class ProfessorActivity extends AppCompatActivity {
+
+    private ActivityProfessorBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_professor);
+        binding = ActivityProfessorBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        Button btnLogout = findViewById(R.id.btnLogoutProfessor);
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Voltar para a tela de login
-                Intent intent;
-                intent = new Intent(ProfessorActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish(); // Finaliza a atividade recente
-            }
+        // Botão de logout
+        binding.btnLogoutProfessor.setOnClickListener(v -> {
+            Intent intent = new Intent(ProfessorActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         });
-        Button btnEditar = findViewById(R.id.btnEditarProfessor);
-        btnEditar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent;
-                intent = new Intent(ProfessorActivity.this, EditarProfessorActivity.class);
-                startActivity(intent);
-            }
+
+        // Botão de editar
+        binding.btnEditarProfessor.setOnClickListener(v -> {
+            Intent intent = new Intent(ProfessorActivity.this, EditarProfessorActivity.class);
+            startActivity(intent);
+
+        });
+        // Botão de visualizar alunos
+        binding.btnVisualizarAlunos.setOnClickListener(v -> {
+            Intent intent = new Intent(ProfessorActivity.this, ListaAlunosActivity.class);
+            startActivity(intent);
         });
     }
 }

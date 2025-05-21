@@ -54,7 +54,6 @@ public class Professor {
         this.email = email;
         this.senha = senha;
 
-
     }
 
 }

@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 @Entity(tableName = "alunos")
 public class Aluno {
     @PrimaryKey(autoGenerate = true)
-    public int matricula = 0;
+    public int matricula;
     public String nome;
     public String email;
     public String senha;
@@ -47,8 +47,7 @@ public class Aluno {
         this.senha = senha;
     }
 
-    public Aluno(int matricula, String nome, String email, String senha) {
-        this.matricula = matricula;
+    public Aluno(String nome, String email, String senha) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
