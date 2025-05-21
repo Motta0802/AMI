@@ -5,6 +5,7 @@
     android:padding="16dp"
     android:gravity="center">
 
+
     <TextView
         android:id="@+id/tvWelcomeAluno"
         android:layout_width="wrap_content"
@@ -19,10 +20,19 @@
         android:layout_height="wrap_content"
         android:text="Logout"
         android:layout_marginTop="16dp" />
+
     <Button
         android:id="@+id/btnEditarAluno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Editar"
         android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btnVisualizarDisciplinas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Disciplinas"
+        android:layout_marginTop="16dp" />
+
 </LinearLayout>

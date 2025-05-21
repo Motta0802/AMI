@@ -17,6 +17,8 @@ public class AlunoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAlunoBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        MyApp app = (MyApp) getApplication();
+        String receivedData = app.getSharedData();
 
         // Botão de logout
         binding.btnLogoutAluno.setOnClickListener(v -> {
@@ -30,5 +32,10 @@ public class AlunoActivity extends AppCompatActivity {
             Intent intent = new Intent(AlunoActivity.this, EditarAlunoActivity.class);
             startActivity(intent);
         });
+        binding.btnVisualizarDisciplinas.setOnClickListener(v -> {
+            Intent intent = new Intent(AlunoActivity.this, DisciplinaAlunoActivity.class);
+            startActivity(intent);
+        });
+
     }
 }

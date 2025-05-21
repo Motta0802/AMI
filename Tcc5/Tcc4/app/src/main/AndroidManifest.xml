@@ -34,6 +34,12 @@
             android:name=".CadastroActivity"
             android:exported="false" />
         <activity
+            android:name=".DisciplinaProfessorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".lista.ListaAlunosActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

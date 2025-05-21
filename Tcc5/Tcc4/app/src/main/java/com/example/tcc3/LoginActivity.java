@@ -55,6 +55,24 @@ public class LoginActivity extends AppCompatActivity {
             String senha = binding.etSenha.getText().toString();
             loginAluno(email, senha);
         });
+        binding.btnLoginProfessor.setOnClickListener(v -> {
+            String data = binding.etEmail.getText().toString();
+
+            MyApp app = (MyApp) getApplication();
+            app.setSharedData(data);
+
+            Intent intent = new Intent(LoginActivity.this, ProfessorActivity.class);
+            startActivity(intent);
+        });
+        binding.btnLoginAluno.setOnClickListener(v -> {
+            String data = binding.etEmail.getText().toString();
+
+            MyApp app = (MyApp) getApplication();
+            app.setSharedData(data);
+
+            Intent intent = new Intent(LoginActivity.this, ProfessorActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void loginProfessor(String email, String senha) {
@@ -71,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             });
         });
+
     }
 
     private void loginAluno(String email, String senha) {
@@ -94,4 +113,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onDestroy();
         executorService.shutdown();
     }
+
 }
+
+
+
+
+
+

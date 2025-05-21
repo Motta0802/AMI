@@ -32,16 +32,16 @@ public class CadastroActivity extends AppCompatActivity {
             String nome = binding.etNomeAluno.getText().toString().trim();
             String email = binding.etEmailAluno.getText().toString().trim();
             String senha = binding.etSenhaAluno.getText().toString().trim();
-            String raStr = binding.etMatAluno.getText().toString().trim();
+            String matStr = binding.etMatAluno.getText().toString().trim();
 
-            if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() || raStr.isEmpty()) {
+            if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() || matStr.isEmpty()) {
                 Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             int mat;
             try {
-                mat = Integer.parseInt(raStr);
+                mat = Integer.parseInt(matStr);
             } catch (NumberFormatException e) {
                 Toast.makeText(this, "Matrícula inválida", Toast.LENGTH_SHORT).show();
                 return;

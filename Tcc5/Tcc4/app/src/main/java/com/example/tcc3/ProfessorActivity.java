@@ -19,6 +19,10 @@ public class ProfessorActivity extends AppCompatActivity {
         binding = ActivityProfessorBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        MyApp app = (MyApp) getApplication();
+        String receivedData = app.getSharedData();
+
+
         // Botão de logout
         binding.btnLogoutProfessor.setOnClickListener(v -> {
             Intent intent = new Intent(ProfessorActivity.this, LoginActivity.class);
@@ -37,5 +41,10 @@ public class ProfessorActivity extends AppCompatActivity {
             Intent intent = new Intent(ProfessorActivity.this, ListaAlunosActivity.class);
             startActivity(intent);
         });
+        binding.btnGerenciarDisciplinas.setOnClickListener(v -> {
+            Intent intent = new Intent(ProfessorActivity.this, DisciplinaProfessorActivity.class);
+            startActivity(intent);
+        });
+
     }
 }

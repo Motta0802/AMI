@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gerenciar Disciplinas"
+            android:textSize="22sp"
+            android:layout_marginBottom="16dp"/>
+
+        <EditText
+            android:id="@+id/etNomeDisciplina"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome da Disciplina" />
+
+        <EditText
+            android:id="@+id/etDescricaoDisciplina"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Descrição" />
+
+        <EditText
+            android:id="@+id/etCargaHorariaDisciplina"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Carga Horária (horas)"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/btnAdicionarDisciplina"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Adicionar Disciplina"
+            android:layout_marginTop="16dp" />
+        <Button
+            android:id="@+id/btnVoltar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Voltar"
+            android:layout_marginTop="16dp" />
+        <ListView
+            android:id="@+id/listViewDisciplinasProfessor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"/>
+
+    </LinearLayout>
+</ScrollView>
