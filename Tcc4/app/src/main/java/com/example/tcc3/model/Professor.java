@@ -3,20 +3,25 @@ package com.example.tcc3.model;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "alunos")
-public class Aluno {
-    @PrimaryKey(autoGenerate = true)
-    public int matricula = 0;
+import java.util.regex.Pattern;
+
+@Entity(tableName = "professores")
+public class Professor {
+    @PrimaryKey(autoGenerate = true)  // Adicione autoGenerate
+    public int id;
     public String nome;
     public String email;
     public String senha;
+    private static final String PASSWORD_REGEX =
+            "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$";
+    private static final Pattern PATTERN = Pattern.compile(PASSWORD_REGEX);
 
-    public int getMatricula() {
-        return matricula;
+    public int getId() {
+        return id;
     }
 
-    public void setMatricula(int matricula) {
-        this.matricula = matricula;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -43,11 +48,13 @@ public class Aluno {
         this.senha = senha;
     }
 
-    public Aluno(int matricula, String nome, String email, String senha) {
-        this.matricula = matricula;
+    // Construtor sem ID (Room irá gerar automaticamente)
+    public Professor(String nome, String email, String senha) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
 
+
     }
+
 }

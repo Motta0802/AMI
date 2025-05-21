@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace = "com.example.tcc3"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.tcc3"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -28,6 +28,10 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+    buildToolsVersion = "35.0.1"
+    viewBinding {
+        enable = true
     }
 }
 
