@@ -32,4 +32,5 @@ public interface AlunoDao {
     Aluno getAlunoById(int id);
     @Query("SELECT * FROM alunos WHERE email = :email AND senha = :senha")
     Aluno login(String email, String senha);
+    
 }

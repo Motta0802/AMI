@@ -1,7 +1,10 @@
 package com.example.tcc3;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tcc3.database.AppDatabase;
@@ -29,6 +32,12 @@ public class DisciplinaAlunoActivity extends AppCompatActivity {
         executorService = Executors.newSingleThreadExecutor();
 
         loadDisciplinas();
+
+        // Botão de voltar
+        binding.btnBack.setOnClickListener(v -> {
+            Intent intent = new Intent(DisciplinaAlunoActivity.this, AlunoActivity.class);
+            finish();
+        });
     }
 
     private void loadDisciplinas() {

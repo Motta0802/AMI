@@ -43,6 +43,12 @@
             android:text="Adicionar Disciplina"
             android:layout_marginTop="16dp" />
         <Button
+            android:id="@+id/btnVisualizarDisciplinas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Visualizar Disciplinas" />
+
+        <Button
             android:id="@+id/btnVoltar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

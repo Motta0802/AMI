@@ -65,9 +65,14 @@ public class DisciplinaProfessorActivity extends AppCompatActivity {
             });
         });
         binding.btnVoltar.setOnClickListener(v -> {
+            Intent intent = new Intent(DisciplinaProfessorActivity.this, ProfessorActivity.class);
+            startActivity(intent);
+        });
+        binding.btnVisualizarDisciplinas.setOnClickListener(v -> {
             Intent intent = new Intent(DisciplinaProfessorActivity.this, DisciplinaAlunoActivity.class);
             startActivity(intent);
         });
+
     }
 
     private void loadDisciplinas() {

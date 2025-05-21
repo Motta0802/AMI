@@ -12,6 +12,12 @@
         android:text="Disciplinas Disponíveis"
         android:textSize="22sp"
         android:layout_marginBottom="16dp"/>
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Voltar"
+        android:layout_marginTop="16dp" />
 
     <ListView
         android:id="@+id/listViewDisciplinasAluno"

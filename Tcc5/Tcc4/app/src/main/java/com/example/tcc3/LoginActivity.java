@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         // Inserir aluno de teste
         executorService.execute(() -> {
             Log.d("LoginActivity", "Inserindo aluno de teste");
-            db.alunoDao().insert(new Aluno( "thiagus", "aluno@teste.com", "1234"));
+            db.alunoDao().insert(new Aluno("thiago", "aluno@teste.com", "1234"));
         });
 
         // Botão de login do professor
@@ -55,24 +55,6 @@ public class LoginActivity extends AppCompatActivity {
             String senha = binding.etSenha.getText().toString();
             loginAluno(email, senha);
         });
-        binding.btnLoginProfessor.setOnClickListener(v -> {
-            String data = binding.etEmail.getText().toString();
-
-            MyApp app = (MyApp) getApplication();
-            app.setSharedData(data);
-
-            Intent intent = new Intent(LoginActivity.this, ProfessorActivity.class);
-            startActivity(intent);
-        });
-        binding.btnLoginAluno.setOnClickListener(v -> {
-            String data = binding.etEmail.getText().toString();
-
-            MyApp app = (MyApp) getApplication();
-            app.setSharedData(data);
-
-            Intent intent = new Intent(LoginActivity.this, ProfessorActivity.class);
-            startActivity(intent);
-        });
     }
 
     private void loginProfessor(String email, String senha) {
@@ -82,14 +64,15 @@ public class LoginActivity extends AppCompatActivity {
             runOnUiThread(() -> {
                 if (professor != null) {
                     Log.d("LoginActivity", "Login do professor bem-sucedido");
-                    startActivity(new Intent(LoginActivity.this, ProfessorActivity.class));
+                    Intent intent = new Intent(LoginActivity.this, ProfessorActivity.class);
+                    intent.putExtra("email", email);  // passando o email para a próxima activity
+                    startActivity(intent);
                 } else {
                     Log.d("LoginActivity", "Login do professor falhou");
                     Toast.makeText(LoginActivity.this, "Login falhou", Toast.LENGTH_SHORT).show();
                 }
             });
         });
-
     }
 
     private void loginAluno(String email, String senha) {
@@ -99,7 +82,9 @@ public class LoginActivity extends AppCompatActivity {
             runOnUiThread(() -> {
                 if (aluno != null) {
                     Log.d("LoginActivity", "Login do aluno bem-sucedido");
-                    startActivity(new Intent(LoginActivity.this, AlunoActivity.class));
+                    Intent intent = new Intent(LoginActivity.this, AlunoActivity.class);
+                    intent.putExtra("email", email);  // passando o email para a próxima activity
+                    startActivity(intent);
                 } else {
                     Log.d("LoginActivity", "Login do aluno falhou");
                     Toast.makeText(LoginActivity.this, "Login falhou", Toast.LENGTH_SHORT).show();
@@ -113,11 +98,4 @@ public class LoginActivity extends AppCompatActivity {
         super.onDestroy();
         executorService.shutdown();
     }
-
 }
-
-
-
-
-
-
