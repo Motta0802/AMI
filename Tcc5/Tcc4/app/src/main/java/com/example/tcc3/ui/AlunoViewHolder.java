@@ -13,8 +13,8 @@ public class AlunoViewHolder extends RecyclerView.ViewHolder {
 
     public AlunoViewHolder(View itemView) {
         super(itemView);
-        tvNomeAluno = itemView.findViewById(R.id.tvNomeAluno);
-        tvEmailAluno = itemView.findViewById(R.id.tvEmailAluno);
+        tvNomeAluno = itemView.findViewById(R.id.etNomeAluno);
+        tvEmailAluno = itemView.findViewById(R.id.etEmailAluno);
     }
 
     public void bind(Aluno aluno) {

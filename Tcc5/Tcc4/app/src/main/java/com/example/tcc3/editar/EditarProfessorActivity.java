@@ -1,20 +1,20 @@
 package com.example.tcc3.editar;
 
 import android.os.Bundle;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.tcc3.R;
 import com.example.tcc3.database.AppDatabase;
+import com.example.tcc3.databinding.ActivityEditarProfessorBinding;
 import com.example.tcc3.model.Professor;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class EditarProfessorActivity extends AppCompatActivity {
-    private EditText etNome, etEmail;
+
+    private ActivityEditarProfessorBinding binding;
     private AppDatabase db;
     private ExecutorService executor;
     private Professor professor;
@@ -22,18 +22,17 @@ public class EditarProfessorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editar_professor);
+        binding = ActivityEditarProfessorBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         db = AppDatabase.getDatabase(this);
         executor = Executors.newSingleThreadExecutor();
 
-        etNome = findViewById(R.id.etNome);
-        etEmail = findViewById(R.id.etEmail);
-
         int professorId = getIntent().getIntExtra("PROFESSOR_ID", -1);
         carregarProfessor(professorId);
 
-        findViewById(R.id.btnSalvar).setOnClickListener(v -> salvarAlteracoes());
+        binding.btnSalvar.setOnClickListener(v -> salvarAlteracoes());
+        binding.btnVoltar.setOnClickListener(v -> finish());  // Botão voltar
     }
 
     private void carregarProfessor(int id) {
@@ -41,16 +40,16 @@ public class EditarProfessorActivity extends AppCompatActivity {
             professor = db.professorDao().getProfessorById(id);
             runOnUiThread(() -> {
                 if (professor != null) {
-                    etNome.setText(professor.nome);
-                    etEmail.setText(professor.email);
+                    binding.etNome.setText(professor.nome);
+                    binding.etEmail.setText(professor.email);
                 }
             });
         });
     }
 
     private void salvarAlteracoes() {
-        String novoNome = etNome.getText().toString();
-        String novoEmail = etEmail.getText().toString();
+        String novoNome = binding.etNome.getText().toString().trim();
+        String novoEmail = binding.etEmail.getText().toString().trim();
 
         if (novoNome.isEmpty() || novoEmail.isEmpty()) {
             Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
@@ -66,5 +65,11 @@ public class EditarProfessorActivity extends AppCompatActivity {
                 finish();
             });
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        executor.shutdown();
     }
 }

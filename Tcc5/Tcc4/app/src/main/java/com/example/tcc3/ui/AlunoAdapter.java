@@ -1,86 +1,60 @@
 package com.example.tcc3.ui;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.tcc3.R;
+import com.example.tcc3.databinding.ItemAlunoBinding;
 import com.example.tcc3.model.Aluno;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class AlunoAdapter extends RecyclerView.Adapter<AlunoAdapter.AlunoViewHolder> {
 
-    private List<Aluno> alunos;
-    private final OnItemClickListener listener;
+    public interface OnAlunoClickListener {
+        void onAlunoClick(Aluno aluno);
+    }
 
-    public AlunoAdapter(List<Aluno> alunos, OnItemClickListener listener) {
-        this.alunos = alunos != null ? alunos : new ArrayList<>();
+    private List<Aluno> alunos;
+    private final OnAlunoClickListener listener;
+
+    public AlunoAdapter(List<Aluno> alunos, OnAlunoClickListener listener) {
+        this.alunos = alunos;
         this.listener = listener;
+    }
+
+    public void setAlunos(List<Aluno> novosAlunos) {
+        this.alunos = novosAlunos;
+        notifyDataSetChanged();
     }
 
     @NonNull
     @Override
     public AlunoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_aluno, parent, false);
-        return new AlunoViewHolder(view);
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        ItemAlunoBinding binding = ItemAlunoBinding.inflate(inflater, parent, false);
+        return new AlunoViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull AlunoViewHolder holder, int position) {
         Aluno aluno = alunos.get(position);
-        holder.tvNomeAluno.setText(aluno.getNome());
-        holder.tvEmailAluno.setText(aluno.getEmail());
+        holder.binding.tvNomeAluno.setText(aluno.nome);
+        holder.binding.tvEmailAluno.setText(aluno.email);
 
-        holder.itemView.setOnClickListener(v -> {
-            if (listener != null) {
-                listener.onItemClick(aluno);
-            }
-        });
+        holder.binding.getRoot().setOnClickListener(v -> listener.onAlunoClick(aluno));
     }
 
     @Override
     public int getItemCount() {
-        return alunos.size();
+        return alunos != null ? alunos.size() : 0;
     }
 
-    public void setAlunos(List<Aluno> alunos) {
-        this.alunos = alunos != null ? alunos : new ArrayList<>();
-        notifyDataSetChanged();
-    }
+    public static class AlunoViewHolder extends RecyclerView.ViewHolder {
+        final ItemAlunoBinding binding;
 
-    public void removeItem(int position) {
-        if (position >= 0 && position < alunos.size()) {
-            alunos.remove(position);
-            notifyItemRemoved(position);
-        }
-    }
-
-    public void updateItem(int position, Aluno aluno) {
-        if (position >= 0 && position < alunos.size() && aluno != null) {
-            alunos.set(position, aluno);
-            notifyItemChanged(position);
-        }
-    }
-
-    public interface OnItemClickListener {
-        void onItemClick(Aluno aluno);
-    }
-
-    static class AlunoViewHolder extends RecyclerView.ViewHolder {
-        final TextView tvNomeAluno;
-        final TextView tvEmailAluno;
-
-        public AlunoViewHolder(@NonNull View itemView) {
-            super(itemView);
-            tvNomeAluno = itemView.findViewById(R.id.tvNomeAluno);
-            tvEmailAluno = itemView.findViewById(R.id.tvEmailAluno);
+        public AlunoViewHolder(ItemAlunoBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
         }
     }
 }

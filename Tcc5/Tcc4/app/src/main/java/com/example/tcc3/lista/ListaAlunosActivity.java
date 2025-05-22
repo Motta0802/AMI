@@ -6,10 +6,9 @@ import android.os.Bundle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.tcc3.R;
 import com.example.tcc3.database.AppDatabase;
+import com.example.tcc3.databinding.ActivityListaAlunosBinding;
 import com.example.tcc3.editar.EditarAlunoActivity;
 import com.example.tcc3.model.Aluno;
 import com.example.tcc3.ui.AlunoAdapter;
@@ -20,25 +19,28 @@ import java.util.concurrent.Executors;
 
 public class ListaAlunosActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
+    private ActivityListaAlunosBinding binding;
     private AlunoAdapter adapter;
     private AppDatabase db;
     private ExecutorService executor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
+        binding = ActivityListaAlunosBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        db = AppDatabase.getDatabase(this);
+        executor = Executors.newSingleThreadExecutor();
+
         configurarRecyclerView();
         observarAlunos();
     }
 
     private void configurarRecyclerView() {
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new AlunoAdapter(new ArrayList<>(), aluno -> {
-            showOptionsDialog(aluno);
-        });
-        recyclerView.setAdapter(adapter);
+        binding.recyclerViewAlunos.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new AlunoAdapter(new ArrayList<>(), this::showOptionsDialog);
+        binding.recyclerViewAlunos.setAdapter(adapter);
     }
 
     private void observarAlunos() {
@@ -47,7 +49,6 @@ public class ListaAlunosActivity extends AppCompatActivity {
         });
     }
 
-    // ============ OPERAÇÕES CRUD ============
     private void editarAluno(Aluno aluno) {
         Intent intent = new Intent(this, EditarAlunoActivity.class);
         intent.putExtra("ALUNO_ID", aluno.matricula);
@@ -59,9 +60,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
                 .setTitle("Confirmar exclusão")
                 .setMessage("Deseja excluir o aluno " + aluno.nome + "?")
                 .setPositiveButton("Excluir", (dialog, which) -> {
-                    executor.execute(() -> {
-                        db.alunoDao().delete(aluno);
-                    });
+                    executor.execute(() -> db.alunoDao().delete(aluno));
                 })
                 .setNegativeButton("Cancelar", null)
                 .show();
@@ -76,5 +75,11 @@ public class ListaAlunosActivity extends AppCompatActivity {
                     else if (which == 1) deletarAluno(aluno);
                 })
                 .show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        executor.shutdown();
     }
 }
