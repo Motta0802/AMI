@@ -2,4 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="fraco">#eff6ff</color>
+    <color name="fraquinho">#95c4fb</color>
+    <color name="semifraco">#62a3f8</color>
+    <color name="medio">#2861e8</color>
+    <color name="semiforte">#204dd5</color>
+    <color name="fortinho">#203a88</color>
+    <color name="forte">#182553</color>
 </resources>

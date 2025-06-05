@@ -25,6 +25,11 @@ public class CadastroActivity extends AppCompatActivity {
         binding = ActivityCadastroBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        binding.btnIrParaLogin.setOnClickListener(v -> {
+            Intent intent = new Intent(CadastroActivity.this, LoginActivity.class);
+            startActivity(intent);
+        });
+
         db = AppDatabase.getDatabase(this);
         executorService = Executors.newSingleThreadExecutor();
 

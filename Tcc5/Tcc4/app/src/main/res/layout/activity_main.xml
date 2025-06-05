@@ -4,8 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="32dp"
     android:gravity="center"
-    android:padding="32dp">
+    android:background="@drawable/gradiente">
+
     <TextView
         android:id="@+id/tvTitulo"
         android:layout_width="wrap_content"
@@ -13,26 +15,53 @@
         android:text="Bem-vindo ao AMI"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:textColor="#333" />
+        android:textColor="@color/white"
+        android:gravity="top"
+        />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="32dp">
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
 
-        <Button
-            android:id="@+id/btnIrParaLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            android:layout_marginBottom="16dp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:src="@drawable/logoami"
+            android:layout_gravity="center"
+            />
 
-        <Button
-            android:id="@+id/btnIrParaCadastro"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cadastro" />
+            android:layout_marginTop="20dp"
+            >
+            <Button
+                android:id="@+id/btnIrParaLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/forte"
+                android:text="Login"
+                android:backgroundTint="@color/white"
+                android:layout_marginRight="80dp"
+                />
+
+            <Button
+                android:id="@+id/btnIrParaCadastro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/forte"
+                android:text="Cadastro"
+                android:backgroundTint="@color/white"
+                />
+        </LinearLayout>
+
+
     </LinearLayout>
+
+
 </LinearLayout>
+

@@ -18,6 +18,15 @@
         android:gravity="center"
         android:layout_marginBottom="16dp" />
 
+    <Button
+        android:id="@+id/btnVoltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/forte"
+        android:text="Voltar"
+        />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewAlunos"
         android:layout_width="match_parent"

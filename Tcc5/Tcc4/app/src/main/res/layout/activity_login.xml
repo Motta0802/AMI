@@ -1,38 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center">
+    android:padding="32dp"
+    android:gravity="center"
+    android:background="@drawable/gradiente">
 
-    <ImageView
+    <TextView
+        android:id="@+id/tvTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/aluno" />
+        android:text="Bem-vindo ao AMI"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:gravity="top"
+        />
 
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Email" />
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
 
-    <EditText
-        android:id="@+id/etSenha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Senha"
-        android:inputType="textPassword" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:src="@drawable/logoami"
+            android:layout_gravity="center"
+            />
 
-    <Button
-        android:id="@+id/btnLoginProfessor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login Professor" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"/>
 
-    <Button
-        android:id="@+id/btnLoginAluno"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login Aluno" />
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/white"
+            android:hint="Email" />
+
+        <EditText
+            android:id="@+id/etSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Senha"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/white"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/btnLoginProfessor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login Professor"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/forte"/>
+
+        <Button
+            android:id="@+id/btnLoginAluno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login Aluno"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/forte"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp">
+            <TextView
+                android:id="@+id/tvbottomtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Não tem login?"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="top" />
+            <Button
+                android:id="@+id/btnIrParaCadastro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Clique aqui"
+                android:backgroundTint="@color/forte"
+                android:textColor="@color/fraco"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
+
+

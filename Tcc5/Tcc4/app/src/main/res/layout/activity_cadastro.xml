@@ -4,41 +4,97 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center">
+    android:padding="32dp"
+    android:gravity="center"
+    android:background="@drawable/gradiente">
 
-
-    <EditText
-        android:id="@+id/etMatAluno"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Matrícula do Aluno"
-        android:inputType="number" />
+        android:text="Faça o seu cadastro"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:gravity="top"
+        />
 
-    <EditText
-        android:id="@+id/etNomeAluno"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Nome"
-        android:inputType="textPersonName" />
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
 
-    <EditText
-        android:id="@+id/etEmailAluno"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:inputType="textEmailAddress" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:src="@drawable/logoami"
+            android:layout_gravity="center"
+            />
 
-    <EditText
-        android:id="@+id/etSenhaAluno"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Senha"
-        android:inputType="textPassword" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"/>
 
-    <Button
-        android:id="@+id/btnCadastrarAluno"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cadastrar" />
-</LinearLayout>
+            <EditText
+                android:id="@+id/etMatAluno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Matrícula do Aluno"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/etNomeAluno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nome"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/etEmailAluno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/etSenhaAluno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Senha"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/btnCadastrarAluno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cadastrar"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/forte"/>
+                />
+
+            <Button
+                android:id="@+id/btnIrParaLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Voltar"
+                android:backgroundTint="@color/forte"
+                android:layout_marginTop="50dp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+

@@ -7,6 +7,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.tcc3.AlunoActivity;
+import com.example.tcc3.DisciplinaAlunoActivity;
+import com.example.tcc3.DisciplinaProfessorActivity;
+import com.example.tcc3.ProfessorActivity;
 import com.example.tcc3.database.AppDatabase;
 import com.example.tcc3.databinding.ActivityListaAlunosBinding;
 import com.example.tcc3.editar.EditarAlunoActivity;
@@ -35,6 +39,11 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
         configurarRecyclerView();
         observarAlunos();
+        binding.btnVoltar.setOnClickListener(v -> {
+            Intent intent = new Intent(ListaAlunosActivity.this, ProfessorActivity.class);
+            startActivity(intent);
+        });
+
     }
 
     private void configurarRecyclerView() {
@@ -76,6 +85,10 @@ public class ListaAlunosActivity extends AppCompatActivity {
                 })
                 .show();
     }
+
+
+
+
 
     @Override
     protected void onDestroy() {
